@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from email.mime import base
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +28,9 @@ SECRET_KEY = "django-insecure-ed+*y%yg8(xrf_ajgyia2b&v1yog^c*6c+2vfie02uoj5ywp*e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["djangostudybud.herokuapp.com/"]
+ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "0.0.0.0"]
 
+CORS_ORIGIN_WHITELIST = ("https://djangostudybud.herokuapp.com", "https://0.0.0.0")
 
 # Application definition
 
@@ -48,6 +50,7 @@ AUTH_USER_MODEL = "base.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -125,11 +128,13 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "static/"
-MEDIA_URL = "images/"
+MEDIA_URL = "static/images/"
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR, "static"]
 
 MEDIA_ROOT = BASE_DIR / "static/images"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -137,3 +142,5 @@ MEDIA_ROOT = BASE_DIR / "static/images"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+django_heroku.settings(locals())
