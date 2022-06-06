@@ -27,7 +27,7 @@ Project uses Django to build a discord like application. The application creates
 ### Application Demo
 
 The app is deployed on heroku. The link to the site is-
-Studybud ()
+Studybud (https://djangostudybud.herokuapp.com/)
 
 ### Technologies
 
