@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn djangostudybud.wsgi
+web: gunicorn studybud.wsgi
