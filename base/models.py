@@ -11,16 +11,16 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
-    def create_superuser(self, email, name, password=None, **extra_fields):
+    def create_superuser(self, email, username, password=None, **extra_fields):
         if not email:
             raise ValueError("User must have an email")
         if not password:
             raise ValueError("User must have a password")
-        if not name:
+        if not username:
             raise ValueError("User must have a full name")
 
         user = self.model(email=self.normalize_email(email))
-        user.name = name
+        user.name = username
         user.set_password(password)
         user.save(using=self._db)
         return user
