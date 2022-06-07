@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
 
 CORS_ORIGIN_WHITELIST = ("https://djangostudybud.herokuapp.com", "https://0.0.0.0")
 
-CSRF_TRUSTED_ORIGINS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
+CSRF_TRUSTED_ORIGINS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0"]
 
 # Application definition
 
