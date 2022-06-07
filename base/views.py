@@ -49,7 +49,7 @@ def registerPage(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-            login(request, user)
+            # login(request, user)
             return redirect("home")
         else:
             messages.add_message(
