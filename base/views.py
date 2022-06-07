@@ -52,6 +52,7 @@ def registerPage(request):
             login(request, user)
             return redirect("home")
         else:
+            print(messages.ERROR)
             messages.add_message(
                 request,
                 messages.ERROR,
