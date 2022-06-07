@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-ed+*y%yg8(xrf_ajgyia2b&v1yog^c*6c+2vfie02uoj5ywp*e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "0.0.0.0"]
+ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
 
 CORS_ORIGIN_WHITELIST = ("https://djangostudybud.herokuapp.com", "https://0.0.0.0")
 
