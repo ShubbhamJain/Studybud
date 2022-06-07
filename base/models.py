@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, username, password=None):
+    def create_user(self, username, email, password=None):
         if not email:
             raise ValueError("User must have an email")
         if not password:
@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, password=None, **extra_fields):
+    def create_superuser(self, username, email, password=None, **extra_fields):
         if not email:
             raise ValueError("User must have an email")
         if not password:
@@ -40,6 +40,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+    objects = UserManager()
 
 
 class Topic(models.Model):
