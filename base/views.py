@@ -8,6 +8,8 @@ from django.db.models import Q
 from .models import Message, Room, Topic, User
 from .forms import MessageForm, RoomForm, UserForm, MyUserCreationForm
 
+import sys
+
 
 def loginPage(request):
     page = "login"
@@ -48,8 +50,10 @@ def registerPage(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
+            print(user)
+            sys.stdout.flush()
             user.save()
-            # login(request, user)
+            login(request, user)
             return redirect("home")
         else:
             messages.add_message(
