@@ -48,6 +48,7 @@ def registerPage(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
+            print(user)
             user.save()
             login(request, user)
             return redirect("home")
