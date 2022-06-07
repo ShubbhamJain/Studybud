@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from email.mime import base
 from pathlib import Path
 import os
-import django_heroku
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +31,8 @@ DEBUG = False
 ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
 
 CORS_ORIGIN_WHITELIST = ("https://djangostudybud.herokuapp.com", "https://0.0.0.0")
+
+CSRF_TRUSTED_ORIGINS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
 
 # Application definition
 
@@ -143,4 +145,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-django_heroku.settings(locals())
+# Configure Django App for Heroku.
+django_on_heroku.settings(locals())
