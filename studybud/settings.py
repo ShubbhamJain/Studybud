@@ -28,7 +28,11 @@ SECRET_KEY = "django-insecure-ed+*y%yg8(xrf_ajgyia2b&v1yog^c*6c+2vfie02uoj5ywp*e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
+
+CORS_ORIGIN_WHITELIST = ("https://djangostudybud.herokuapp.com", "https://0.0.0.0")
+
+CSRF_TRUSTED_ORIGINS = ["https://djangostudybud.herokuapp.com", "https://0.0.0.0", "*"]
 
 # Application definition
 
@@ -48,7 +52,6 @@ AUTH_USER_MODEL = "base.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
