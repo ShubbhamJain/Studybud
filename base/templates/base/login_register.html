@@ -66,6 +66,11 @@
           <div class="form__group">
             <label for="room_name">{{field.label}}</label>
             {{field}}
+            {% if field.errors %}
+            {% for error in field.errors %}
+            <li style="color:#fc4b0b">{{ error|escape }}</li>
+            {% endfor %}
+            {% endif %}
           </div>
           {% endfor %}
 

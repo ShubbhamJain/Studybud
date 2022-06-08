@@ -8,8 +8,6 @@ from django.db.models import Q
 from .models import Message, Room, Topic, User
 from .forms import MessageForm, RoomForm, UserForm, MyUserCreationForm
 
-import sys
-
 
 def loginPage(request):
     page = "login"
@@ -57,7 +55,7 @@ def registerPage(request):
             messages.add_message(
                 request,
                 messages.ERROR,
-                "Error encountered during registration. Please try again.",
+                form.errors,
             )
 
     context = {"form": form}
